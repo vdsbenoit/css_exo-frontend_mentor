@@ -6,10 +6,18 @@ export default <Partial<Config>>{
   plugins: [require("@tailwindcss/forms")],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        lime: "hsl(61, 70%, 52%)",
+        // slate: {
+        //   300: "hsl(203, 41%, 72%)",
+        //   500: "hsl(200, 26%, 54%)",
+        //   700: "hsl(200, 24%, 40%)",
+        //   900: "hsl(202, 55%, 16%)",
+        // },
+      },
     },
     fontFamily: {
-      sans: ["Arial", ...defaultTheme.fontFamily.sans],
+      sans: ["PlusJakartaSans", ...defaultTheme.fontFamily.sans],
     },
   },
 };
