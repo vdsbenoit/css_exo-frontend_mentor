@@ -10,6 +10,5 @@
     ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["/\\*\\s?ui\\s?\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
-  "editor.formatOnSave": true
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"]
 }
