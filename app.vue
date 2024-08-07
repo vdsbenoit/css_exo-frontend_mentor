@@ -1,4 +1,4 @@
 <template>
-<Exo/>
+  <Exo />
 </template>
 <script lang="ts" setup></script>
