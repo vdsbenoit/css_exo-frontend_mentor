@@ -7,21 +7,19 @@
         <div class="items-center justify-between md:flex">
           <h2 class="mb-1 text-slate-800">Mortage Calculator</h2>
           <span
-            class="text-sm font-medium text-slate-400 underline md:font-semibold"
+            class="text-sm font-medium text-slate-400 underline hover:cursor-pointer md:font-semibold"
           >
             Clear All
           </span>
         </div>
         <form class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
           <label class="md:col-span-2">
-            <span class="text-sm text-slate-500 md:font-semibold">
-              Mortgage Amount
-            </span>
+            <span class="text-sm text-slate-500"> Mortgage Amount </span>
             <div
-              class="mt-2 flex w-full overflow-hidden rounded-md border border-slate-400"
+              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
             >
               <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700"
+                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
               >
                 £
               </span>
@@ -29,72 +27,66 @@
                 type="string"
                 value="300,000"
                 name="amount"
-                class="w-full px-3 py-2 font-bold text-slate-800 focus:outline-none"
+                class="w-full px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
               />
             </div>
           </label>
           <label>
-            <span class="text-sm text-slate-500 md:font-semibold">
-              Mortgage Term
-            </span>
+            <span class="text-sm text-slate-500"> Mortgage Term </span>
             <div
-              class="mt-2 flex w-full overflow-hidden rounded-md border border-slate-400"
+              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
             >
               <input
                 type="number"
                 :value="25"
                 name="term"
-                class="w-full border-none px-3 py-2 font-bold text-slate-800 focus:outline-none"
+                class="w-full border-none px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
               />
               <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700"
+                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
               >
                 years
               </span>
             </div>
           </label>
           <label>
-            <span class="text-sm text-slate-500 md:font-semibold">
-              Interest Rate
-            </span>
+            <span class="text-sm text-slate-500"> Interest Rate </span>
             <div
-              class="mt-2 flex w-full overflow-hidden rounded-md border border-slate-400"
+              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
             >
               <input
                 type="number"
                 :value="2.25"
                 name="rate"
-                class="w-full border-none px-3 py-2 font-bold text-slate-800 focus:outline-none"
+                step="0.01"
+                class="w-full border-none px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
               />
               <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700"
+                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
               >
                 %
               </span>
             </div>
           </label>
           <fieldset class="md:col-span-2">
-            <legend class="text-sm text-slate-500 md:font-semibold">
-              Mortgage type
-            </legend>
+            <legend class="text-sm text-slate-500">Mortgage Type</legend>
             <label
-              class="mt-2 flex w-full items-center rounded py-2 font-bold text-slate-700 outline outline-1 outline-gray-500 has-[:checked]:bg-yellow-50 has-[:checked]:outline-lime"
+              class="mt-2 flex w-full items-center rounded py-2 font-bold text-slate-900 outline outline-1 outline-gray-500 hover:cursor-pointer hover:outline-lime has-[:checked]:bg-yellow-50 has-[:checked]:outline-lime"
             >
               <input
-                class="form-radio me-3 ms-4 text-lime focus:outline-lime focus:ring-0"
+                class="form-radio me-3 ms-4 text-lime hover:cursor-pointer focus:outline-lime focus:ring-0"
                 type="radio"
                 name="type"
                 id="repayement"
                 value="repayement"
-                checked
               />
               Repayment
             </label>
             <label
-              class="mt-2 flex w-full items-center rounded py-2 font-bold text-slate-700 outline outline-1 outline-gray-500 has-[:checked]:bg-yellow-50 has-[:checked]:outline-lime"
+              class="mt-2 flex w-full items-center rounded py-2 font-bold text-slate-900 outline outline-1 outline-gray-500 hover:cursor-pointer hover:outline-lime has-[:checked]:bg-yellow-50 has-[:checked]:outline-lime"
             >
               <input
-                class="form-radio me-3 ms-4 text-lime focus:outline-lime focus:ring-0"
+                class="form-radio me-3 ms-4 text-lime hover:cursor-pointer focus:outline-lime focus:ring-0"
                 type="radio"
                 name="type"
                 id="interest"
@@ -106,9 +98,13 @@
           <div class="flex justify-center md:col-span-2 md:justify-start">
             <button
               type="submit"
-              class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-lime px-2 py-3 font-bold text-slate-800 md:w-auto md:px-8"
+              class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-lime px-2 py-3 font-bold text-slate-800 hover:bg-lime-light md:w-auto md:px-8"
             >
-              <UIcon class="me-3 size-5" name="i-heroicons-calculator-solid" />
+              <img
+                class="me-3 size-5"
+                src="assets/images/icon-calculator.svg"
+                alt="calculator"
+              />
               Calculate Repayments
             </button>
           </div>
@@ -118,31 +114,47 @@
         id="results"
         class="bg-slate-900 p-5 md:rounded-r-xl md:rounded-bl-[40px] md:p-8"
       >
-        <h2 class="mt-2 text-gray-200 md:mt-0">Your results</h2>
-        <p class="mt-4 text-sm text-slate-300 md:mt-2">
-          Your results are shown below based on the information you provided. To
-          adjust the results, edit the form and click “calculate repayments”
-          again.
-        </p>
-        <div
-          class="mt-5 grid grid-cols-1 divide-y divide-gray-700 rounded-lg border-t-4 border-lime bg-slate-950 px-4 md:mt-8 md:px-6"
-        >
-          <div class="py-4 md:py-6">
-            <h3>You monthly repayments</h3>
-            <div
-              class="text-3xl font-bold lining-nums tabular-nums text-lime md:text-5xl"
-            >
-              {{ getMonthlyRepayments() }}
+        <div v-if="showResults">
+          <h2 class="mt-2 text-gray-200 md:mt-0">Your results</h2>
+          <p class="mt-4 text-sm text-slate-300 md:mt-2">
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate
+            repayments” again.
+          </p>
+          <div
+            class="mt-5 grid grid-cols-1 divide-y divide-gray-700 rounded-lg border-t-4 border-lime bg-slate-950 px-4 md:mt-8 md:px-6"
+          >
+            <div class="py-4 md:py-6">
+              <h3>You monthly repayments</h3>
+              <div
+                class="text-3xl font-bold lining-nums tabular-nums text-lime md:text-4xl"
+              >
+                {{ getMonthlyRepayments() }}
+              </div>
+            </div>
+            <div class="py-4 md:py-5">
+              <h3>Total you'll repay over the term</h3>
+              <div
+                class="text-xl font-bold lining-nums tabular-nums text-gray-200"
+              >
+                {{ getTotalRepay() }}
+              </div>
             </div>
           </div>
-          <div class="py-4 md:py-5">
-            <h3>Total you'll repay over the term</h3>
-            <div
-              class="text-xl font-bold lining-nums tabular-nums text-gray-200"
-            >
-              {{ getTotalRepay() }}
-            </div>
+        </div>
+        <div v-else class="flex h-full flex-col items-center justify-center">
+          <img
+            class="size-40"
+            src="assets/images/illustration-empty.svg"
+            alt="results-placeholder"
+          />
+          <div class="my-3 text-xl font-bold text-gray-100">
+            Results shown here
           </div>
+          <p class="text-center text-xs font-medium text-slate-300">
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </p>
         </div>
       </section>
     </main>
@@ -152,6 +164,8 @@
 <script lang="ts" setup>
 import type { _300 } from "#tailwind-config/theme/transitionDelay";
 import CurrencyInput from "./CurrencyInput.vue";
+
+const showResults = false;
 
 const monthlyRepayments = 1797.74;
 const totalRepay = 539322.94;

@@ -8,6 +8,7 @@ export default <Partial<Config>>{
     darkMode: false,
     extend: {
       colors: {
+        "lime-light": "hsl(61, 70%, 65%)",
         lime: "hsl(61, 70%, 52%)",
         slate: {
           50: "hsl(204, 60%, 95%)",
