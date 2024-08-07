@@ -3,6 +3,7 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 export default <Partial<Config>>{
   content: ["docs/content/**/*.md"],
+  plugins: [require("@tailwindcss/forms")],
   theme: {
     extend: {
       colors: {},
