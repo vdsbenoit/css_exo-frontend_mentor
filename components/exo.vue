@@ -8,66 +8,49 @@
           <h2 class="mb-1 text-slate-800">Mortage Calculator</h2>
           <span
             class="text-sm font-medium text-slate-400 underline hover:cursor-pointer md:font-semibold"
+            @click="clear"
           >
             Clear All
           </span>
         </div>
-        <form class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <label class="md:col-span-2">
-            <span class="text-sm text-slate-500"> Mortgage Amount </span>
-            <div
-              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
-            >
-              <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
-              >
-                £
-              </span>
-              <input
-                type="string"
-                value="300,000"
-                name="amount"
-                class="w-full px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
-              />
-            </div>
-          </label>
-          <label>
-            <span class="text-sm text-slate-500"> Mortgage Term </span>
-            <div
-              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
-            >
-              <input
-                type="number"
-                :value="25"
-                name="term"
-                class="w-full border-none px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
-              />
-              <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
-              >
-                years
-              </span>
-            </div>
-          </label>
-          <label>
-            <span class="text-sm text-slate-500"> Interest Rate </span>
-            <div
-              class="group mt-2 flex w-full overflow-hidden rounded-md border border-slate-400 focus-within:border-lime"
-            >
-              <input
-                type="number"
-                :value="2.25"
-                name="rate"
-                step="0.01"
-                class="w-full border-none px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
-              />
-              <span
-                class="content-center bg-slate-50 px-3 font-bold text-slate-700 group-focus-within:bg-lime group-focus-within:text-slate-800"
-              >
-                %
-              </span>
-            </div>
-          </label>
+        <form
+          class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2"
+          @submit.prevent="handleSubmit"
+          novalidate
+        >
+          <CalcInput
+            title="Mortgage Amount"
+            type="string"
+            name="amount"
+            unit="£"
+            min="0"
+            v-model="amount"
+            :unit-first="true"
+            class="md:col-span-2"
+            required
+            :submitted="submitted"
+          />
+          <CalcInput
+            title="Mortgage Term"
+            type="number"
+            name="term"
+            unit="years"
+            min="0"
+            v-model="term"
+            required
+            :submitted="submitted"
+          />
+          <CalcInput
+            title="Interest Rate"
+            type="number"
+            name="rate"
+            unit="%"
+            min="0"
+            step="0.01"
+            v-model="rate"
+            required
+            :submitted="submitted"
+          />
           <fieldset class="md:col-span-2">
             <legend class="text-sm text-slate-500">Mortgage Type</legend>
             <label
@@ -77,6 +60,7 @@
                 class="form-radio me-3 ms-4 text-lime hover:cursor-pointer focus:outline-lime focus:ring-0"
                 type="radio"
                 name="type"
+                v-model="type"
                 id="repayement"
                 value="repayement"
               />
@@ -89,11 +73,15 @@
                 class="form-radio me-3 ms-4 text-lime hover:cursor-pointer focus:outline-lime focus:ring-0"
                 type="radio"
                 name="type"
+                v-model="type"
                 id="interest"
                 value="interest"
               />
               Interest Only
             </label>
+            <p v-if="submitted && !type" class="mt-3 text-xs text-red-600">
+              This field is required
+            </p>
           </fieldset>
           <div class="flex justify-center md:col-span-2 md:justify-start">
             <button
@@ -162,13 +150,20 @@
 </template>
 
 <script lang="ts" setup>
-import type { _300 } from "#tailwind-config/theme/transitionDelay";
-import CurrencyInput from "./CurrencyInput.vue";
+// Reactive data
 
-const showResults = false;
+const submitted = ref(false);
+const showResults = ref(false);
+
+const amount = ref();
+const term = ref();
+const rate = ref();
+const type = ref("");
 
 const monthlyRepayments = 1797.74;
 const totalRepay = 539322.94;
+
+// Methods
 
 const formatToGbp = (value: number) => {
   return value.toLocaleString("en-GB", { style: "currency", currency: "GBP" });
@@ -179,6 +174,17 @@ const getMonthlyRepayments = () => {
 };
 const getTotalRepay = () => {
   return formatToGbp(totalRepay);
+};
+
+const handleSubmit = () => {
+  submitted.value = true;
+};
+
+const clear = () => {
+  amount.value = 0;
+  term.value = 0;
+  rate.value = 0;
+  type.value = "";
 };
 </script>
 
