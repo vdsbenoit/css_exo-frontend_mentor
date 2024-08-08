@@ -1,75 +1,68 @@
-# Nuxt UI Minimal Starter
+# Frontend Mentor - Mortgage repayment calculator solution
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
+This is a solution to the [Mortgage repayment calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/mortgage-repayment-calculator-Galx1LXK73). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Setup
+## Table of contents
 
-Make sure to install the dependencies:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-```bash
-# npm
-npm install
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-# pnpm
-pnpm install
+## Overview
 
-# yarn
-yarn install
+### The challenge
 
-# bun
-bun install
-```
+Users should be able to:
 
-## Development Server
+- Input mortgage information and see monthly repayment and total repayment amounts after submitting the form
+- See form validation messages if any field is incomplete
+- Complete the form only using their keyboard
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-Start the development server on `http://localhost:3000`:
+### Screenshots
 
-```bash
-# npm
-npm run dev
+#### Desktop
 
-# pnpm
-pnpm run dev
+<img src="./screenshots/screenshot-md-empty.png" style="zoom: 80%;" />
 
-# yarn
-yarn dev
+<img src="./screenshots/screenshot-md-full.png" style="zoom:80%;" />
 
-# bun
-bun run dev
-```
+#### Mobile
 
-## Production
+| <img src="./screenshots/screenshot-sm-empty.png" style="zoom: 25%;" /> | <img src="./screenshots/screenshot-sm-full.png" style="zoom: 25%;" /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-Build the application for production:
+### Links
 
-```bash
-# npm
-npm run build
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-# pnpm
-pnpm run build
+## My process
 
-# yarn
-yarn build
+### Built with
 
-# bun
-bun run build
-```
+- Semantic HTML5 markup
+- Tailwind
+- Vue 3 (composition API)
+- Nuxt 3
+- Prettier validation enforced
 
-Locally preview production build:
+### What I learned
 
-```bash
-# npm
-npm run preview
+There isn't any native ways to format an `input` field of type `number`. 
+In order to have a `,` separator between the thousands, one have to write some javascript code to format the `input` element and to format the value back to a `number` afterwards.
 
-# pnpm
-pnpm run preview
+## Author
 
-# yarn
-yarn preview
+- Website - [frite.dev](https://frite.dev)
+- Frontend Mentor - [@vdsbenoit](https://www.frontendmentor.io/profile/vdsbenoit)
+- Linkedin - [@vdsbenoit](https://www.linkedin.com/in/vdsbenoit/)
 
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
