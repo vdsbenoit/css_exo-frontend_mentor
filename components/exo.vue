@@ -1,20 +1,20 @@
 <template>
-  <div class="flex min-h-screen flex-col items-center justify-center">
+  <div class="min-h-screen flex-col items-center justify-center sm:flex">
     <main
-      class="grid max-w-[375px] bg-gray-50 md:max-w-4xl md:grid-cols-2 md:rounded-xl"
+      class="grid w-full bg-gray-50 sm:w-auto sm:max-w-4xl sm:grid-cols-2 sm:rounded-xl"
     >
-      <section id="calc" class="p-5 md:p-8">
-        <div class="items-center justify-between md:flex">
+      <section id="calc" class="p-5 pt-8 sm:p-8">
+        <div class="items-center justify-between sm:flex">
           <h2 class="mb-1 text-slate-800">Mortage Calculator</h2>
           <span
-            class="text-sm font-medium text-slate-400 underline hover:cursor-pointer md:font-semibold"
+            class="text-sm font-medium text-slate-400 underline hover:cursor-pointer sm:font-semibold"
             @click="clear"
           >
             Clear All
           </span>
         </div>
         <form
-          class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2"
+          class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2"
           @submit.prevent="handleSubmit"
           novalidate
         >
@@ -26,7 +26,7 @@
             min="0"
             v-model="rAmount"
             :unit-first="true"
-            class="md:col-span-2"
+            class="sm:col-span-2"
             required
             :submitted="rSubmitted"
             @input="formatAmount"
@@ -56,7 +56,7 @@
             required
             :submitted="rSubmitted"
           />
-          <fieldset class="md:col-span-2">
+          <fieldset class="sm:col-span-2">
             <legend class="text-sm text-slate-500">Mortgage Type</legend>
             <label
               class="mt-2 flex w-full items-center rounded py-2 font-bold text-slate-900 outline outline-1 outline-gray-500 hover:cursor-pointer hover:outline-lime has-[:checked]:bg-yellow-50 has-[:checked]:outline-lime"
@@ -88,10 +88,10 @@
               This field is required
             </p>
           </fieldset>
-          <div class="flex justify-center md:col-span-2 md:justify-start">
+          <div class="flex justify-center sm:col-span-2 sm:justify-start">
             <button
               type="submit"
-              class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-lime px-2 py-3 font-bold text-slate-800 hover:bg-lime-light md:w-auto md:px-8"
+              class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-lime px-4 py-3 font-bold text-slate-800 hover:bg-lime-light sm:w-auto sm:px-8"
             >
               <img
                 class="me-3 size-5"
@@ -105,27 +105,27 @@
       </section>
       <section
         id="results"
-        class="bg-slate-900 p-5 md:rounded-r-xl md:rounded-bl-[40px] md:p-8"
+        class="bg-slate-900 p-5 py-8 sm:rounded-r-xl sm:rounded-bl-[40px] sm:p-8"
       >
         <div v-if="rShowResults">
-          <h2 class="mt-2 text-gray-200 md:mt-0">Your results</h2>
-          <p class="mt-4 text-sm text-slate-300 md:mt-2">
+          <h2 class="mt-2 text-gray-200 sm:mt-0">Your results</h2>
+          <p class="mt-4 text-sm text-slate-300 sm:mt-2">
             Your results are shown below based on the information you provided.
             To adjust the results, edit the form and click “calculate
             repayments” again.
           </p>
           <div
-            class="mt-5 grid grid-cols-1 divide-y divide-gray-700 rounded-lg border-t-4 border-lime bg-slate-950 px-4 md:mt-8 md:px-6"
+            class="mt-5 grid grid-cols-1 divide-y divide-gray-700 rounded-lg border-t-4 border-lime bg-slate-950 px-4 sm:mt-8 sm:px-6"
           >
-            <div class="py-4 md:py-6">
+            <div class="py-4 sm:py-6">
               <h3>You monthly repayments</h3>
               <div
-                class="text-3xl font-bold lining-nums tabular-nums text-lime md:text-4xl"
+                class="text-3xl font-bold lining-nums tabular-nums text-lime sm:text-4xl"
               >
                 £{{ rMonthlyRepayments }}
               </div>
             </div>
-            <div class="py-4 md:py-5">
+            <div class="py-4 sm:py-5">
               <h3>Total you'll repay over the term</h3>
               <div
                 class="text-xl font-bold lining-nums tabular-nums text-gray-200"
@@ -144,7 +144,7 @@
           <div class="my-3 text-xl font-bold text-gray-100">
             Results shown here
           </div>
-          <p class="text-center text-xs font-medium text-slate-300">
+          <p class="text-center text-sm font-medium text-slate-300 sm:text-xs">
             Complete the form and click “calculate repayments” to see what your
             monthly repayments would be.
           </p>
@@ -176,7 +176,7 @@ const parseNumber = (value: string) => {
 };
 
 const formatToGbp = (value: number) => {
-  return value.toLocaleString("en-GB");
+  return value.toLocaleString("en-GB", { maximumFractionDigits: 2 });
 };
 
 const formatAmount = () => {
@@ -239,7 +239,7 @@ const clear = () => {
 
 <style scoped lang="postcss">
 h2 {
-  @apply text-xl font-bold tracking-wide md:text-lg;
+  @apply text-xl font-bold tracking-wide sm:text-lg;
 }
 h3 {
   @apply mb-2 text-sm text-gray-400;
