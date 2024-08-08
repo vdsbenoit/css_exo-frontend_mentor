@@ -10,8 +10,7 @@
     >
       <!-- Input content -->
       <input
-        :value="model"
-        @input="onInput"
+        v-model="model"
         class="w-full border-none px-3 py-2 font-bold text-slate-800 hover:cursor-pointer focus:outline-none"
         v-bind="$attrs"
       />
@@ -52,13 +51,6 @@ const model = defineModel();
 const cShowRequired = computed(() => {
   return !model.value && props.submitted;
 });
-
-// Methods
-
-const onInput = (event: Event) => {
-  const input = event.target as HTMLInputElement;
-  model.value = input.value;
-};
 </script>
 
 <style scoped></style>
