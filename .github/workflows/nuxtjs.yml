@@ -47,7 +47,9 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: npm ci --cache .npm --prefer-offline
-      - name: Static HTML export with Nuxt
+      - name: Generate static site
+        env:
+          NUXT_APP_BASE_URL: /css_exo-frontend_mentor/
         run: npm run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
