@@ -4,14 +4,18 @@ This is a solution to the [Mortgage repayment calculator challenge on Frontend M
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshots](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-- [Author](#author)
+- [Frontend Mentor - Mortgage repayment calculator solution](#frontend-mentor---mortgage-repayment-calculator-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshots](#screenshots)
+      - [Desktop](#desktop)
+      - [Mobile](#mobile)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+  - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -42,8 +46,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub Pages](https://vdsbenoit.github.io/css_exo-frontend_mentor)
 
 ## My process
 
@@ -58,7 +61,7 @@ Users should be able to:
 ### What I learned
 
 There isn't any native ways to format an `input` field of type `number`. 
-In order to have a `,` separator between the thousands, one have to write some javascript code to format the `input` element and to format the value back to a `number` afterwards.
+In order to have a `,` separator every 3 digit (e.g. currencies), one needs to write some javascript code to format the `input` element, then cast the value back to a `number` again for further processing.
 
 ## Author
 
