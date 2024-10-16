@@ -2,9 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
+
   colorMode: {
     preference: "light",
   },
+
   app: {
     head: {
       title: "",
@@ -17,4 +19,6 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  compatibilityDate: "2024-10-16",
 });

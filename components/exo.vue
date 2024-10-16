@@ -95,7 +95,7 @@
             >
               <img
                 class="me-3 size-5"
-                src="assets/images/icon-calculator.svg"
+                src="@/assets/images/icon-calculator.svg"
                 alt="calculator"
               />
               Calculate Repayments
@@ -138,7 +138,7 @@
         <div v-else class="flex h-full flex-col items-center justify-center">
           <img
             class="size-40"
-            src="assets/images/illustration-empty.svg"
+            src="@/assets/images/illustration-empty.svg"
             alt="results-placeholder"
           />
           <div class="my-3 text-xl font-bold text-gray-100">
